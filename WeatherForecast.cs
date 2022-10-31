@@ -14,5 +14,6 @@ namespace DOTNETAPI
     {
         public string nome { get; set; }
         public string idade { get; set; }
+        public string str {get;set;}
     }
 }

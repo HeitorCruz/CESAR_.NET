@@ -1,4 +1,6 @@
+
 var builder = WebApplication.CreateBuilder(args);
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -18,6 +20,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+// app.MapPost("/delete",()=>LTN.MySql.);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -29,10 +32,10 @@ app.UseSwaggerUI();
 app.UseCors("MyAllowSpecificOrigins");
 app.UseMvc();
 app.UseAuthorization();
-
+app.UseRouting();
 app.MapControllers();
-
 app.Run();
+
 
     
 
