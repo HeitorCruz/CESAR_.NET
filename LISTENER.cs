@@ -43,7 +43,7 @@ namespace LTN
         public string GET()
         {
             FbConnection cnt = new FbConnection(@"datasource=localhost;database=C:\Program Files\Firebird\Firebird_2_5\HEITOR.fdb;user=sysdba;password=masterkey");
-            cnt.Open();                                                    
+            cnt.Open();
             FbCommand cmd = new FbCommand("select * from ENTIDADES",cnt);
             FbCommand cmd2 = new FbCommand("select count(nome) from ENTIDADES",cnt);
             FbDataReader dr = cmd.ExecuteReader();
@@ -58,6 +58,8 @@ namespace LTN
             i++;
             }
             i=0;
+            System.Console.WriteLine(ArraydeVendedores.data[0].nome);
+            System.Console.WriteLine(JsonSerializer.Serialize(ArraydeVendedores));
             return JsonSerializer.Serialize(ArraydeVendedores);
             cnt.Close();
         }
